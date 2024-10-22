@@ -26,6 +26,7 @@ vim /etc/apache2/sites-available/website.conf
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 
+
 a2ensite website.conf
 apache2ctl configtest
 systemctl restart apache2
