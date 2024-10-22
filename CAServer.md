@@ -1,3 +1,49 @@
+# Instalação Apache2, MySQL, PhpMyAdmin
+
+Instalação do Apache2
+
+apt update
+apt install apache2
+ufw allow in 'Apache'
+systemctl status apache2
+hostname -I
+systemctl enable apache2
+
+
+vim /etc/apache2/sites-available/website.conf
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    ServerName your_domain
+    ServerAlias www.your_domain
+    DocumentRoot /var/www/your_domain
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+a2ensite website.conf
+apache2ctl configtest
+systemctl restart apache2
+
+
+Install MySQL
+
+apt install mysql-server
+systemctl start mysql.service
+mysql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'webserveradmin';
+mysql_secure_installation
+
+
+Install PhpMyadmin
+
+apt install phpmyadmin php-mbstring php-zip php-gd php-json php-curl
+systemctl restart apache2
+apt install php-cli
+
+
+
+
 # Estrutura de diretórios da CA e dos Certificados Assinados (Linha )
 /etc/ssl/             *{Diretório padrão das configurações do OpenSSL}*\
 /etc/ssl/certs/       *{Diretório das CAs Confiáveis do Ubuntu Server}*\
