@@ -41,6 +41,9 @@ apt install phpmyadmin php-mbstring php-zip php-gd php-json php-curl
 systemctl restart apache2
 apt install php-cli
 
+sudo ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf-available/phpmyadmin.conf
+sudo a2enconf phpmyadmin.conf
+sudo systemctl reload apache2.service
 
 
 
