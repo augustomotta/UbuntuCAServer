@@ -3,10 +3,15 @@
 Instalação do Apache2
 
 apt update
+
 apt install apache2
+
 ufw allow in 'Apache'
+
 systemctl status apache2
+
 hostname -I
+
 systemctl enable apache2
 
 
