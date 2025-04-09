@@ -75,3 +75,10 @@ sudo certbot --apache -d seusite.com
 ```
 
 Pronto! O certificado SSL foi copiado com sucesso para o novo servidor Apache2. 🚀
+
+
+                SSLEngine on
+                SSLCertificateFile /etc/ssl/newcerts/apache2.crt
+                SSLCertificateKeyFile /etc/ssl/private/apache2.key
+                SSLCertificateChainFile /etc/ssl/certs/ca.pem
+
